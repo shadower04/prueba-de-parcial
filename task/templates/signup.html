@@ -1,5 +1,9 @@
-<h1>signup</h1>
-<form>
-    {{form.as_p}}
+<h1>signup</h1>  <!-- ← CORREGIDO: h1 no hl -->
+<form action="/signup/" method="post">
+    {% csrf_token %}  <!-- ← AGREGADO: token de seguridad -->
+    {{ form.as_p }}
+    <button>
+        signup
+    </button>
 </form>
 
