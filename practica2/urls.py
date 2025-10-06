@@ -21,10 +21,13 @@ The `urlpatterns` list routes URLs to views. For more information please see:
 """
 from django.contrib import admin
 from django.urls import path
-from task import views
+from django.contrib.auth import views as auth_views
+from task.views import home, signup  # ⬅️ Importa las vistas directamente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.helloworld),
-    path('signup/', views.helloworld)
+    path('', home, name='home'),
+    path('signup/', signup, name='signup'),
+    path('login/', auth_views.LoginView.as_view(template_name='task/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
