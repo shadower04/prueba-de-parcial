@@ -1,7 +1,15 @@
-from django.shortcuts import render 
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 
-def helloworld(request):
-    return render(request, 'signup.html',{
-        'form': UserCreationForm
-    })
+def home(request):
+    return render(request, 'task/home.html')
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'task/signup.html', {'form': form})

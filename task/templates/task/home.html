@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mi Aplicación</title>
+    <link rel="stylesheet" href="{% static 'task/css/signup.css' %}">
+    <style>
+        .home-container {
+            max-width: 500px;
+            text-align: center;
+        }
+        .btn-group {
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-secondary {
+            background: #ecf0f1;
+            color: #2c3e50;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container home-container">
+        <h2 class="signup-title">¡Bienvenido!</h2>
+        <p class="signup-subtitle">Gestiona tus tareas de forma eficiente</p>
+        
+        <div class="btn-group">
+            <a href="{% url 'signup' %}" class="btn btn-primary">Crear Cuenta</a>
+            <a href="{% url 'login' %}" class="btn btn-secondary">Iniciar Sesión</a>
+        </div>
+    </div>
+</body>
+</html>
